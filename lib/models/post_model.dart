@@ -41,7 +41,7 @@ class PostModel {
     this.id = data["ID"] as String;
     this.code = data["Codigo"] as String;
     this.answers = data["Respostas"] as int;
-    this.date = DateTime.fromMicrosecondsSinceEpoch(
+    this.date = DateTime.fromMillisecondsSinceEpoch(
       int.tryParse(data["DataHora"] as String),
     );
     this.isRead = data["EstaLido"] as bool;
@@ -60,5 +60,20 @@ class PostModel {
         imageUrl: data["AutorImageUrl"],
       );
     }
+  }
+
+  String get formattedDate {
+    String day = date.day.toString();
+    if (day.length == 1) {
+      day = "0" + day;
+    }
+    String month = date.month.toString();
+    if (month.length == 1) {
+      month = "0" + month;
+    }
+    String year = date.year.toString();
+    String hour = date.hour.toString();
+    String minutes = date.minute.toString();
+    return day + "/" + month + "/" + year + " às " + hour + ":" + minutes;
   }
 }
