@@ -7,6 +7,9 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class NavigationController extends GetxController {
+  final PostsController _postsController;
+  NavigationController(this._postsController);
+  // Navigation
   RxInt _currentPageIndex = 0.obs;
   int get currentPageIndex => _currentPageIndex.value;
   void changePage(int index) => _currentPageIndex.value = index;
