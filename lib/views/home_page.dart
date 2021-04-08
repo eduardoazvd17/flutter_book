@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _appBar(),
       floatingActionButton: _addButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(
@@ -23,6 +24,25 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  _appBar() => AppBar(
+        backgroundColor: Get.theme.scaffoldBackgroundColor,
+        elevation: 1,
+        centerTitle: false,
+        title: Obx(
+          () => Text(_navigationController.currentPageIndex == 1
+              ? "Meus Posts"
+              : "FlutterBook"),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(CupertinoIcons.search),
+            onPressed: () {
+              //TODO: mostrar caixa de pesquisa.
+            },
+          ),
+        ],
+      );
 
   _addButton() => FloatingActionButton(
         child: Icon(
