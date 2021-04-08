@@ -55,8 +55,8 @@ class PostTile extends StatelessWidget {
   _postContent() => Column(
         children: [
           Text(
-            this.post.text.length > 288
-                ? this.post.text.substring(0, 284) + "..."
+            this.post.text.length > 280
+                ? this.post.text.substring(0, 276) + "..."
                 : this.post.text,
             textAlign: TextAlign.start,
           ),
