@@ -8,9 +8,7 @@ class MainLayout extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: child,
-        ),
+        child: child,
       ),
     );
   }

@@ -5,6 +5,8 @@ import 'package:flutterbook/utils/application_routes.dart';
 import 'package:flutterbook/views/home_page.dart';
 import 'package:get/get.dart';
 
+import 'controllers/navigation_controller.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: ApplicationRoutes.HOME,
-          page: () => HomePage(),
+          page: () => HomePage(Get.find<NavigationController>()),
           binding: HomeBinding(),
         ),
       ],

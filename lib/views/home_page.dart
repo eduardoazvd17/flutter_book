@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbook/controllers/home_controller.dart';
+import 'package:flutterbook/controllers/navigation_controller.dart';
 import 'package:flutterbook/widgets/main_layout.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  final _homeController = Get.find<HomeController>();
+  final NavigationController _navigationController;
+  HomePage(this._navigationController);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,7 @@ class HomePage extends StatelessWidget {
       ),
       body: MainLayout(
         child: Obx(
-          () => _homeController.currentPage,
+          () => _navigationController.currentPage,
         ),
       ),
     );
@@ -33,8 +35,8 @@ class HomePage extends StatelessWidget {
       );
 
   _navigationBar() => BottomNavigationBar(
-        currentIndex: _homeController.currentPageIndex,
-        items: _homeController.navigationItems,
-        onTap: _homeController.changePage,
+        currentIndex: _navigationController.currentPageIndex,
+        items: _navigationController.navigationItems,
+        onTap: _navigationController.changePage,
       );
 }
