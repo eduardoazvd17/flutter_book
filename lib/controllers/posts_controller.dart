@@ -7,9 +7,16 @@ class PostsController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    posts.value = await _apiService.getPosts();
+    await _loadPostsFromApi();
   }
 
-  ApiService _apiService = ApiService(Get.find<Dio>());
+  RxBool loading = false.obs;
   RxList posts = [].obs;
+
+  _loadPostsFromApi() async {
+    loading.value = true;
+    ApiService _apiService = ApiService(Get.find<Dio>());
+    posts.value = await _apiService.getPosts();
+    loading.value = false;
+  }
 }
