@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbook/bindings/application_binding.dart';
 import 'package:flutterbook/bindings/home_binding.dart';
 import 'package:flutterbook/utils/application_routes.dart';
 import 'package:flutterbook/views/home_page.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       theme: _lightTheme,
       darkTheme: _darkTheme,
       initialRoute: ApplicationRoutes.HOME,
+      initialBinding: ApplicationBinding(),
       getPages: [
         GetPage(
           name: ApplicationRoutes.HOME,
