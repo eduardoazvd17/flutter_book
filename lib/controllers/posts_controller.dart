@@ -10,13 +10,15 @@ class PostsController extends GetxController {
     await _loadPostsFromApi();
   }
 
-  RxBool loading = false.obs;
-  RxList posts = [].obs;
+  RxBool _loading = false.obs;
+  bool get loading => _loading.value;
+  RxList _posts = [].obs;
+  List get posts => _posts;
 
   _loadPostsFromApi() async {
-    loading.value = true;
+    _loading.value = true;
     ApiService _apiService = ApiService(Get.find<Dio>());
-    posts.value = await _apiService.getPosts();
-    loading.value = false;
+    _posts.value = await _apiService.getPosts();
+    _loading.value = false;
   }
 }

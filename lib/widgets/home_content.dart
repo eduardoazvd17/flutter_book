@@ -11,13 +11,27 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => ListView.builder(
-        itemCount: _postsController.posts.length,
-        itemBuilder: (context, index) {
-          PostModel post = _postsController.posts[index];
-          return PostTile(post);
-        },
-      ),
+      () => _postsController.loading
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : _postsController.posts.length == 0
+              ? Center(
+                  child: Text(
+                    "Nenhum conteúdo publicado",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: _postsController.posts.length,
+                  itemBuilder: (context, index) {
+                    PostModel post = _postsController.posts[index];
+                    return PostTile(post);
+                  },
+                ),
     );
   }
 }
