@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
   final _lightTheme = ThemeData(
     primarySwatch: Colors.orange,
   );
-  final _darkTheme = ThemeData.dark().copyWith(
-    accentColor: Colors.orange,
-  );
+  final _darkTheme = ThemeData.dark();
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
