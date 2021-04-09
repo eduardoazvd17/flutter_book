@@ -8,13 +8,14 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class PostsController extends GetxController {
+  // On Init -> Load API Posts.
   @override
   void onInit() async {
     super.onInit();
     await _loadPostsFromApi();
   }
 
-  //Mock User
+  //Mocked User
   UserModel get user => UserModel(
         id: "1",
         name: "Eduardo Azevedo",
@@ -22,10 +23,17 @@ class PostsController extends GetxController {
             "https://avatars.githubusercontent.com/u/49172682?s=400&u=12df3b8878007a0b6f48d7d5d9555cb784191218&v=4",
       );
 
+  //Loading Control
   RxBool _loading = false.obs;
   bool get loading => _loading.value;
-  RxList _posts = [].obs;
 
+  //Filter Control
+  RxString _filter = "".obs;
+  String get filter => _filter.value;
+  changeFilter(String text) => _filter.value = text;
+  clearFilter() => _filter.value = "";
+
+  //SearchBox Control
   RxBool _isSearching = false.obs;
   bool get isSearching => _isSearching.value;
   toggleSearch() {
@@ -33,10 +41,8 @@ class PostsController extends GetxController {
     _isSearching.value = !_isSearching.value;
   }
 
-  RxString _filter = "".obs;
-  String get filter => _filter.value;
-  changeFilter(String text) => _filter.value = text;
-  clearFilter() => _filter.value = "";
+  //Posts Control
+  RxList _posts = [].obs;
 
   List get posts {
     _posts.value.sort((a, b) => b.date.compareTo(a.date));

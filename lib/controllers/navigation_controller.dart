@@ -9,7 +9,8 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 class NavigationController extends GetxController {
   final PostsController _postsController;
   NavigationController(this._postsController);
-  // Navigation
+
+  // Navigation Control
   RxInt _currentPageIndex = 0.obs;
   int get currentPageIndex => _currentPageIndex.value;
   void changePage(int index) {
@@ -18,6 +19,7 @@ class NavigationController extends GetxController {
     _currentPageIndex.value = index;
   }
 
+  // Navigation Items
   List<BottomNavigationBarItem> get navigationItems => [
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.home),
@@ -28,6 +30,8 @@ class NavigationController extends GetxController {
           label: "Meus Posts",
         ),
       ];
+
+  // Pages
   RxList _pages = [
     HomeContent(Get.find<PostsController>()),
     MyPostsContent(Get.find<PostsController>()),
