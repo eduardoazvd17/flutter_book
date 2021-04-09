@@ -1,16 +1,26 @@
-# flutterbook
+# Flutter Book
 
-A new Flutter project.
+Aplicativo de "Blogging". Desafio proposto pela empresa Ephron - Convergência Organizacional.
 
-## Getting Started
+## Tecnologias Utilizadas
 
-This project is a starting point for a Flutter application.
+A aplicação foi desenvolvida utilizando flutter e adotando padrões de código limpo, seguindo a arquitetura MVC (Model View Controller) com GetX, obtendo dados de uma API RESTful utlizando a biblioteca Dio.
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+    -   listagem, criação, edição e exclusão de posts;
+    -   busca de pessoa e/ou post utilizando a barra de pesquisa;
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Capturas de Tela
+
+<div align="center">
+	<img width="200" height="400" src="./screenshots/home.png" alt="Início"/>
+    <span style="padding-left:2px"></span>
+    <img width="200" height="400" src="./screenshots/my_posts.png" alt="Meus Posts"/>
+    <span style="padding-left:2px"></span>
+    <img width="200" height="400" src="./screenshots/new_post.png" alt="Nova Postagem"/>
+    <span style="padding-left:2px"></span>
+    <img width="200" height="400" src="./screenshots/searching.png" alt="Meus Posts"/>
+    <span style="padding-left:2px"></span>
+    <img width="200" height="400" src="./screenshots/home_edited.png" alt="Nova Postagem"/>
+</div>
