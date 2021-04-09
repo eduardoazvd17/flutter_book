@@ -49,13 +49,10 @@ class PostsController extends GetxController {
     _posts.add(
       PostModel(
         id: "$id",
-        code: "NP$id",
         answers: 0,
         date: DateTime.now(),
-        isRead: false,
         user: user,
         text: text,
-        version: 1,
       ),
     );
   }
@@ -64,7 +61,8 @@ class PostsController extends GetxController {
     PostModel post = _posts.singleWhere((element) => element.id == id);
     _posts.remove(post); // Remove post antigo.
     post.text = newText;
-    post.version += 1;
+    post.date = DateTime.now();
+    post.isEdited = true;
     _posts.add(post); // Adiciona post modificado
   }
 
