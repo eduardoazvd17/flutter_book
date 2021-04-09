@@ -53,9 +53,14 @@ class HomePage extends StatelessWidget {
         ),
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             context: Get.context,
-            builder: (_) => NewPostModal(
-              Get.find<PostsController>(),
+            builder: (_) => Padding(
+              padding:
+                  EdgeInsets.only(bottom: Get.mediaQuery.viewInsets.bottom),
+              child: NewPostModal(
+                Get.find<PostsController>(),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
