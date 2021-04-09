@@ -108,12 +108,14 @@ class _NewPostModalState extends State<NewPostModal> {
         ),
         onPressed: () {
           if (_textController.text.replaceAll(" ", "") == "") {
+            //Error
             Get.snackbar(
               "Erro",
               "Seu post não pode ser vazio.",
               backgroundColor: Colors.red[200],
             );
           } else {
+            //Success
             widget._postsController.createPost(_textController.text);
             Get.close(1);
             Get.snackbar(
@@ -138,12 +140,17 @@ class _NewPostModalState extends State<NewPostModal> {
         ),
         onPressed: () {
           if (_textController.text.replaceAll(" ", "") == "") {
+            //Error
             Get.snackbar(
               "Erro",
               "Seu post não pode ser vazio.",
               backgroundColor: Colors.red[200],
             );
+          } else if (_textController.text == widget.editPost.text) {
+            //Nothing Changed
+            Get.close(1);
           } else {
+            //Success
             widget._postsController
                 .editPost(widget.editPost.id, _textController.text);
             Get.close(1);
