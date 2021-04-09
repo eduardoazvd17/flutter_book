@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
               ? TextField(
                   autofocus: true,
                   decoration: InputDecoration(
-                    labelText: "Pesquisar...",
+                    labelText: "Pesquisar por pessoa ou conteúdo...",
                   ),
                   onChanged: (text) => _postsController.changeFilter(text),
                 )
