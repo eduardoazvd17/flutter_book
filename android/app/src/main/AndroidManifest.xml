@@ -3,7 +3,7 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="flutterbook"
+        android:label="FlutterBook"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
