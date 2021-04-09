@@ -1,6 +1,6 @@
 # FlutterBook
 
-Aplicativo de "Blogging". Desafio proposto pela empresa Ephron - Convergência Organizacional.
+Aplicativo de "Blogging". Desafio proposto pela empresa Ephrom - Convergência Organizacional.
 
 ## Tecnologias Utilizadas
 
