@@ -48,7 +48,12 @@ class PostTile extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10),
-          Text(post.user.name),
+          Text(
+            post.user.name,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       );
 
@@ -83,15 +88,6 @@ class PostTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
-                post.isRead ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
-                size: 20,
-              ),
-            ],
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
                 CupertinoIcons.reply,
                 size: 20,
               ),
@@ -100,6 +96,7 @@ class PostTile extends StatelessWidget {
               ),
             ],
           ),
+          Container(),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
