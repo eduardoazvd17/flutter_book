@@ -4,6 +4,8 @@ import 'package:flutterbook/models/post_model.dart';
 import 'package:flutterbook/widgets/post_tile.dart';
 import 'package:get/get.dart';
 
+import 'new_post_modal.dart';
+
 class MyPostsContent extends StatelessWidget {
   final PostsController _postsController;
   MyPostsContent(this._postsController);
@@ -51,7 +53,26 @@ class MyPostsContent extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    context: Get.context,
+                    builder: (_) => Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Get.mediaQuery.viewInsets.bottom),
+                      child: NewPostModal(
+                        Get.find<PostsController>(),
+                        editPost: post,
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: const Radius.circular(30),
+                        topRight: const Radius.circular(30),
+                      ),
+                    ),
+                  );
+                },
                 icon: Icon(
                   Icons.edit,
                   color: Colors.grey,

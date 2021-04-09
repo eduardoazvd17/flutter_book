@@ -85,7 +85,7 @@ class PostTile extends StatelessWidget {
                 ],
               ),
               Text(
-                post.formattedDate,
+                (post.isEdited ? "Editado - " : "") + post.formattedDate,
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.grey,

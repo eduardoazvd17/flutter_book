@@ -1,18 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbook/controllers/posts_controller.dart';
+import 'package:flutterbook/models/post_model.dart';
 import 'package:get/get.dart';
 
 class NewPostModal extends StatefulWidget {
   final PostsController _postsController;
-  NewPostModal(this._postsController);
+  final PostModel editPost;
+  NewPostModal(this._postsController, {this.editPost});
 
   @override
-  _NewPostModalState createState() => _NewPostModalState();
+  _NewPostModalState createState() => _NewPostModalState(
+        TextEditingController(
+          text: editPost == null ? "" : editPost.text,
+        ),
+      );
 }
 
 class _NewPostModalState extends State<NewPostModal> {
-  final _textController = TextEditingController();
+  final _textController;
+  _NewPostModalState(this._textController);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class _NewPostModalState extends State<NewPostModal> {
             _greyBar(),
             SizedBox(height: 20),
             Text(
-              "Nova Postagem",
+              widget.editPost == null ? "Nova Postagem" : "Editar Postagem",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
@@ -39,7 +46,9 @@ class _NewPostModalState extends State<NewPostModal> {
                   SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: _sendButton(),
+                    child: widget.editPost == null
+                        ? _newPostButton()
+                        : _editPostButton(),
                   ),
                 ],
               ),
@@ -86,7 +95,7 @@ class _NewPostModalState extends State<NewPostModal> {
         textInputAction: TextInputAction.done,
       );
 
-  _sendButton() => ElevatedButton.icon(
+  _newPostButton() => ElevatedButton.icon(
         icon: Icon(
           Icons.send,
           color: Colors.white,
@@ -98,8 +107,7 @@ class _NewPostModalState extends State<NewPostModal> {
           ),
         ),
         onPressed: () {
-          if (_textController.isBlank ||
-              _textController.text.replaceAll(" ", "") == "") {
+          if (_textController.text.replaceAll(" ", "") == "") {
             Get.snackbar(
               "Erro",
               "Seu post não pode ser vazio.",
@@ -111,6 +119,37 @@ class _NewPostModalState extends State<NewPostModal> {
             Get.snackbar(
               "Postagem efetuada",
               "Seu post foi publicado com sucesso!",
+              backgroundColor: Colors.green[200],
+            );
+          }
+        },
+      );
+
+  _editPostButton() => ElevatedButton.icon(
+        icon: Icon(
+          Icons.save,
+          color: Colors.white,
+        ),
+        label: Text(
+          "Salvar",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        onPressed: () {
+          if (_textController.text.replaceAll(" ", "") == "") {
+            Get.snackbar(
+              "Erro",
+              "Seu post não pode ser vazio.",
+              backgroundColor: Colors.red[200],
+            );
+          } else {
+            widget._postsController
+                .editPost(widget.editPost.id, _textController.text);
+            Get.close(1);
+            Get.snackbar(
+              "Postagem editada",
+              "Seu post foi editado com sucesso!",
               backgroundColor: Colors.green[200],
             );
           }
