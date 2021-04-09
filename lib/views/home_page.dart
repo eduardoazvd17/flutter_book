@@ -35,6 +35,7 @@ class HomePage extends StatelessWidget {
         title: Obx(
           () => _postsController.isSearching
               ? TextField(
+                  autofocus: true,
                   decoration: InputDecoration(
                     labelText: "Pesquisar...",
                   ),
