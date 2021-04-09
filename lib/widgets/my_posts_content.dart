@@ -47,7 +47,7 @@ class MyPostsContent extends StatelessWidget {
   _actions(PostModel post) => Align(
         alignment: Alignment.centerRight,
         child: Padding(
-          padding: const EdgeInsets.only(top: 5, right: 8),
+          padding: const EdgeInsets.only(top: 2.5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.max,

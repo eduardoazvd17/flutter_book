@@ -25,8 +25,9 @@ class PostTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBox(height: 5),
             hideUser ? Container() : _author(),
-            SizedBox(height: hideUser ? 35 : 10),
+            SizedBox(height: hideUser ? 25 : 5),
             Divider(),
             Padding(
               padding: EdgeInsets.only(bottom: 10),
