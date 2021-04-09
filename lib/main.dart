@@ -12,17 +12,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final _lightTheme = ThemeData(
-    primarySwatch: Colors.orange,
-  );
-  final _darkTheme = ThemeData.dark();
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FlutterBook',
-      theme: _lightTheme,
-      darkTheme: _darkTheme,
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+      ),
       initialRoute: ApplicationRoutes.HOME,
       initialBinding: ApplicationBinding(),
       getPages: [
