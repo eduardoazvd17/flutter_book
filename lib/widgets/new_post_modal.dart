@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbook/controllers/posts_controller.dart';
+import 'package:get/get.dart';
 
 class NewPostModal extends StatelessWidget {
   final _textController = TextEditingController();
@@ -19,13 +20,13 @@ class NewPostModal extends StatelessWidget {
             "Nova Postagem",
             style: TextStyle(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
             ),
           ),
           SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 _textField(),
                 SizedBox(height: 10),
                 Align(
@@ -54,6 +55,18 @@ class NewPostModal extends StatelessWidget {
   _textField() => TextField(
         controller: _textController,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: Get.theme.accentColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: Colors.grey,
+            ),
+          ),
           labelText: "Conte-nos sobre seu dia...",
           suffixIcon: Icon(CupertinoIcons.text_bubble),
         ),
