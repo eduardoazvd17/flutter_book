@@ -8,7 +8,8 @@ import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   final NavigationController _navigationController;
-  HomePage(this._navigationController);
+  final PostsController _postsController;
+  HomePage(this._navigationController, this._postsController);
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +33,25 @@ class HomePage extends StatelessWidget {
         elevation: 1,
         centerTitle: true,
         title: Obx(
-          () => Text(_navigationController.currentPageIndex == 1
-              ? "Meus Posts"
-              : "FlutterBook"),
+          () => _postsController.isSearching
+              ? TextField(
+                  decoration: InputDecoration(
+                    labelText: "Pesquisar...",
+                  ),
+                  onChanged: (text) => _postsController.changeFilter(text),
+                )
+              : Text(_navigationController.currentPageIndex == 1
+                  ? "Meus Posts"
+                  : "FlutterBook"),
         ),
         actions: [
           IconButton(
-            icon: Icon(CupertinoIcons.search),
-            onPressed: () {
-              //TODO: mostrar caixa de pesquisa.
-            },
+            icon: Obx(
+              () => Icon(_postsController.isSearching
+                  ? Icons.close
+                  : CupertinoIcons.search),
+            ),
+            onPressed: () => _postsController.toggleSearch(),
           ),
         ],
       );

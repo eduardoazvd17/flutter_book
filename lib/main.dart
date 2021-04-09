@@ -6,6 +6,7 @@ import 'package:flutterbook/views/home_page.dart';
 import 'package:get/get.dart';
 
 import 'controllers/navigation_controller.dart';
+import 'controllers/posts_controller.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: ApplicationRoutes.HOME,
-          page: () => HomePage(Get.find<NavigationController>()),
+          page: () => HomePage(
+            Get.find<NavigationController>(),
+            Get.find<PostsController>(),
+          ),
           binding: HomeBinding(),
         ),
       ],

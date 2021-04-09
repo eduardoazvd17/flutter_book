@@ -26,9 +26,35 @@ class PostsController extends GetxController {
   bool get loading => _loading.value;
   RxList _posts = [].obs;
 
+  RxBool _isSearching = false.obs;
+  bool get isSearching => _isSearching.value;
+  toggleSearch() {
+    clearFilter();
+    _isSearching.value = !_isSearching.value;
+  }
+
+  RxString _filter = "".obs;
+  String get filter => _filter.value;
+  changeFilter(String text) => _filter.value = text;
+  clearFilter() => _filter.value = "";
+
   List get posts {
     _posts.value.sort((a, b) => b.date.compareTo(a.date));
-    return _posts;
+    if (_filter.value == "") {
+      return _posts;
+    } else {
+      return _posts
+          .where(
+            (element) =>
+                (element.text
+                    .toLowerCase()
+                    .contains(_filter.value.toLowerCase())) ||
+                (element.user.name
+                    .toLowerCase()
+                    .contains(_filter.value.toLowerCase())),
+          )
+          .toList();
+    }
   }
 
   List get myPosts {
