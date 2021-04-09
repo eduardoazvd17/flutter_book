@@ -25,7 +25,7 @@ class NavigationController extends GetxController {
       ];
   RxList _pages = [
     HomeContent(Get.find<PostsController>()),
-    MyPostsContent(),
+    MyPostsContent(Get.find<PostsController>()),
   ].obs;
   get currentPage => _pages[currentPageIndex];
 }

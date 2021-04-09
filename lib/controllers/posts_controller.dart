@@ -25,7 +25,16 @@ class PostsController extends GetxController {
   RxBool _loading = false.obs;
   bool get loading => _loading.value;
   RxList _posts = [].obs;
-  List get posts => _posts;
+
+  List get posts {
+    _posts.value.sort((a, b) => b.date.compareTo(a.date));
+    return _posts;
+  }
+
+  List get myPosts {
+    _posts.value.sort((a, b) => b.date.compareTo(a.date));
+    return posts.where((element) => element.user.id == user.id).toList();
+  }
 
   _loadPostsFromApi() async {
     _loading.value = true;
@@ -50,4 +59,14 @@ class PostsController extends GetxController {
       ),
     );
   }
+
+  editPost(String id, String newText) {
+    PostModel post = _posts.singleWhere((element) => element.id == id);
+    _posts.remove(post); // Remove post antigo.
+    post.text = newText;
+    post.version += 1;
+    _posts.add(post); // Adiciona post modificado
+  }
+
+  deletePost(PostModel post) => _posts.remove(post);
 }
