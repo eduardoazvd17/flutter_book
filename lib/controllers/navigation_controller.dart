@@ -12,7 +12,12 @@ class NavigationController extends GetxController {
   // Navigation
   RxInt _currentPageIndex = 0.obs;
   int get currentPageIndex => _currentPageIndex.value;
-  void changePage(int index) => _currentPageIndex.value = index;
+  void changePage(int index) {
+    _postsController.clearFilter();
+    if (_postsController.isSearching) _postsController.toggleSearch();
+    _currentPageIndex.value = index;
+  }
+
   List<BottomNavigationBarItem> get navigationItems => [
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.home),
