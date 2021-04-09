@@ -87,7 +87,6 @@ class PostsController extends GetxController {
     PostModel post = _posts.singleWhere((element) => element.id == id);
     _posts.remove(post); // Remove post antigo.
     post.text = newText;
-    post.date = DateTime.now();
     post.isEdited = true;
     _posts.add(post); // Adiciona post modificado
   }
