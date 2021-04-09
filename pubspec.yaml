@@ -23,7 +23,6 @@ environment:
 dependencies:
   dio: 4.0.0
   get: 4.1.3
-  get_storage: 2.0.2
   flutter:
     sdk: flutter
 
