@@ -18,7 +18,7 @@ class HomeContent extends StatelessWidget {
           : _postsController.posts.length == 0
               ? Center(
                   child: Text(
-                    "Nenhum conteúdo publicado",
+                    "Nenhuma postagem encontrada",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
