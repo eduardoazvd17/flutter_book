@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbook/controllers/navigation_controller.dart';
+import 'package:flutterbook/controllers/posts_controller.dart';
 import 'package:flutterbook/widgets/main_layout.dart';
+import 'package:flutterbook/widgets/new_post_modal.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,7 +30,7 @@ class HomePage extends StatelessWidget {
   _appBar() => AppBar(
         backgroundColor: Get.theme.scaffoldBackgroundColor,
         elevation: 1,
-        centerTitle: false,
+        centerTitle: true,
         title: Obx(
           () => Text(_navigationController.currentPageIndex == 1
               ? "Meus Posts"
@@ -50,7 +52,18 @@ class HomePage extends StatelessWidget {
           color: Get.theme.scaffoldBackgroundColor,
         ),
         onPressed: () {
-          //TODO: Abrir página de novo post.
+          showModalBottomSheet(
+            context: Get.context,
+            builder: (_) => NewPostModal(
+              Get.find<PostsController>(),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: const Radius.circular(30),
+                topRight: const Radius.circular(30),
+              ),
+            ),
+          );
         },
       );
 
