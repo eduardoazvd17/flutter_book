@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
+import 'package:flutterbook/models/post_model.dart';
 import 'package:flutterbook/models/user_model.dart';
 import 'package:flutterbook/services/api_service.dart';
 import 'package:get/get.dart';
@@ -12,12 +15,12 @@ class PostsController extends GetxController {
   }
 
   //Mock User
-  var user = UserModel(
-    id: "1",
-    name: "Eduardo Azevedo",
-    imageUrl:
-        "https://avatars.githubusercontent.com/u/49172682?s=400&u=12df3b8878007a0b6f48d7d5d9555cb784191218&v=4",
-  ).obs;
+  UserModel get user => UserModel(
+        id: "1",
+        name: "Eduardo Azevedo",
+        imageUrl:
+            "https://avatars.githubusercontent.com/u/49172682?s=400&u=12df3b8878007a0b6f48d7d5d9555cb784191218&v=4",
+      );
 
   RxBool _loading = false.obs;
   bool get loading => _loading.value;
@@ -29,5 +32,22 @@ class PostsController extends GetxController {
     ApiService _apiService = ApiService(Get.find<Dio>());
     _posts.value = await _apiService.getPosts();
     _loading.value = false;
+  }
+
+  createPost(String text) {
+    var random = new Random();
+    var id = random.nextInt(999999) + _posts.length;
+    _posts.add(
+      PostModel(
+        id: "$id",
+        code: "NP$id",
+        answers: 0,
+        date: DateTime.now(),
+        isRead: false,
+        user: user,
+        text: text,
+        version: 1,
+      ),
+    );
   }
 }
