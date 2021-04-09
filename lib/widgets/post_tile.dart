@@ -4,7 +4,8 @@ import 'package:flutterbook/models/post_model.dart';
 
 class PostTile extends StatelessWidget {
   final PostModel post;
-  PostTile(this.post);
+  final bool hideUser;
+  PostTile(this.post, {this.hideUser = false});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,14 +25,13 @@ class PostTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            _author(),
-            SizedBox(height: 10),
+            hideUser ? Container() : _author(),
+            SizedBox(height: hideUser ? 35 : 10),
             Divider(),
-            SizedBox(height: 10),
-            _postContent(),
-            SizedBox(height: 20),
-            _postReview(),
-            SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: _postContent(),
+            ),
           ],
         ),
       ),
@@ -70,45 +70,26 @@ class PostTile extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    CupertinoIcons.reply,
+                    size: 20,
+                  ),
+                  Text(
+                    post.answers.toString(),
+                  ),
+                ],
+              ),
               Text(
                 post.formattedDate,
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.grey,
                 ),
-              ),
-            ],
-          ),
-        ],
-      );
-
-  _postReview() => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                CupertinoIcons.reply,
-                size: 20,
-              ),
-              Text(
-                post.answers.toString(),
-              ),
-            ],
-          ),
-          Container(),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                CupertinoIcons.square_favorites,
-                size: 20,
-              ),
-              Text(
-                post.version.toString(),
               ),
             ],
           ),
