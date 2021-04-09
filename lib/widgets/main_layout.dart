@@ -7,7 +7,7 @@ class MainLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(10),
         child: child,
       ),
     );
