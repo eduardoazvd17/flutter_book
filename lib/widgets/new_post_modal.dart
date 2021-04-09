@@ -23,37 +23,39 @@ class _NewPostModalState extends State<NewPostModal> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _greyBar(),
-            SizedBox(height: 20),
-            Text(
-              widget.editPost == null ? "Nova Postagem" : "Editar Postagem",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _greyBar(),
+              SizedBox(height: 20),
+              Text(
+                widget.editPost == null ? "Nova Postagem" : "Editar Postagem",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-            ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(height: 20),
-                  _textField(),
-                  SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: widget.editPost == null
-                        ? _newPostButton()
-                        : _editPostButton(),
-                  ),
-                ],
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 20),
+                    _textField(),
+                    SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: widget.editPost == null
+                          ? _newPostButton()
+                          : _editPostButton(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
