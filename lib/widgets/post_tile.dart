@@ -59,11 +59,14 @@ class PostTile extends StatelessWidget {
 
   _postContent() => Column(
         children: [
-          Text(
-            this.post.text.length > 280
-                ? this.post.text.substring(0, 276) + "..."
-                : this.post.text,
-            textAlign: TextAlign.start,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              this.post.text.length > 280
+                  ? this.post.text.substring(0, 276) + "..."
+                  : this.post.text,
+              textAlign: TextAlign.start,
+            ),
           ),
           SizedBox(height: 20),
           Row(
