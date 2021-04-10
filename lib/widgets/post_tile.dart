@@ -26,7 +26,10 @@ class PostTile extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: 5),
-            hideUser ? Container() : _author(),
+            Visibility(
+              visible: !hideUser,
+              child: _author(),
+            ),
             SizedBox(height: hideUser ? 25 : 5),
             Divider(),
             Padding(
