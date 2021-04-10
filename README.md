@@ -4,7 +4,7 @@ Aplicativo de "Blogging". Desafio proposto pela empresa Ephrom - Convergência O
 
 ## Tecnologias Utilizadas
 
-A aplicação foi desenvolvida utilizando flutter e adotando padrões de código limpo, seguindo a arquitetura MVC (Model View Controller) com GetX, obtendo dados de uma API RESTful utlizando a biblioteca Dio.
+A aplicação foi desenvolvida utilizando flutter e adotando padrões de código limpo, seguindo a arquitetura MVC (Model View Controller) com GetX para controle de estado e injeção de dependencias, obtendo dados de uma API RESTful utlizando a biblioteca Dio, e utilizando Mockito para testes automatizados.
 
 ## Funcionalidades
 
