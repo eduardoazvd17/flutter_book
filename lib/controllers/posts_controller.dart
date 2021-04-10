@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutterbook/models/post_model.dart';
 import 'package:flutterbook/models/user_model.dart';
-import 'package:flutterbook/services/api_service.dart';
+import 'package:flutterbook/repositories/api_repository.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -70,7 +70,7 @@ class PostsController extends GetxController {
 
   _loadPostsFromApi() async {
     _loading.value = true;
-    ApiService _apiService = ApiService(Get.find<Dio>());
+    ApiRepository _apiService = ApiRepository(Get.find<Dio>());
     _posts.value = await _apiService.getPosts();
     _loading.value = false;
   }

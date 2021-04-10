@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutterbook/models/post_model.dart';
 
-class ApiService {
+class ApiRepository {
   final Dio _dio;
-  ApiService(this._dio);
+  ApiRepository(this._dio);
 
   Future<List<PostModel>> getPosts() async {
     try {
