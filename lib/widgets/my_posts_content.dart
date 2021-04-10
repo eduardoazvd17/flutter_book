@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbook/controllers/posts_controller.dart';
 import 'package:flutterbook/models/post_model.dart';
@@ -75,7 +76,7 @@ class MyPostsContent extends StatelessWidget {
                   );
                 },
                 icon: Icon(
-                  Icons.edit,
+                  CupertinoIcons.pencil,
                   color: Colors.grey,
                 ),
               ),
@@ -107,7 +108,12 @@ class MyPostsContent extends StatelessWidget {
                             Get.snackbar(
                               "Postagem excluída",
                               "Seu post foi excluído com sucesso.",
+                              icon: Icon(
+                                CupertinoIcons.delete,
+                                color: Colors.black,
+                              ),
                               backgroundColor: Colors.green[200],
+                              colorText: Colors.black,
                             );
                           },
                           child: Text(
@@ -128,7 +134,7 @@ class MyPostsContent extends StatelessWidget {
                   );
                 },
                 icon: Icon(
-                  Icons.close,
+                  CupertinoIcons.delete,
                   color: Colors.red,
                 ),
               ),

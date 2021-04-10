@@ -113,7 +113,12 @@ class _NewPostModalState extends State<NewPostModal> {
             Get.snackbar(
               "Erro",
               "Seu post não pode ser vazio.",
+              icon: Icon(
+                CupertinoIcons.exclamationmark_circle,
+                color: Colors.black,
+              ),
               backgroundColor: Colors.red[200],
+              colorText: Colors.black,
             );
           } else {
             //Success
@@ -122,7 +127,12 @@ class _NewPostModalState extends State<NewPostModal> {
             Get.snackbar(
               "Postagem efetuada",
               "Seu post foi publicado com sucesso!",
+              icon: Icon(
+                CupertinoIcons.chevron_down_circle,
+                color: Colors.black,
+              ),
               backgroundColor: Colors.green[200],
+              colorText: Colors.black,
             );
           }
         },
@@ -145,7 +155,12 @@ class _NewPostModalState extends State<NewPostModal> {
             Get.snackbar(
               "Erro",
               "Seu post não pode ser vazio.",
+              icon: Icon(
+                CupertinoIcons.exclamationmark_circle,
+                color: Colors.black,
+              ),
               backgroundColor: Colors.red[200],
+              colorText: Colors.black,
             );
           } else if (_textController.text == widget.editPost.text) {
             //Nothing Changed
@@ -158,7 +173,12 @@ class _NewPostModalState extends State<NewPostModal> {
             Get.snackbar(
               "Postagem editada",
               "Seu post foi editado com sucesso!",
+              icon: Icon(
+                CupertinoIcons.pencil_circle,
+                color: Colors.black,
+              ),
               backgroundColor: Colors.green[200],
+              colorText: Colors.black,
             );
           }
         },
