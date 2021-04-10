@@ -71,6 +71,7 @@ class _NewPostModalState extends State<NewPostModal> {
       );
 
   _textField() => TextField(
+        autofocus: true,
         controller: _textController,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
