@@ -10,6 +10,7 @@ A aplicação foi desenvolvida utilizando flutter e adotando padrões de código
 
     -   listagem, criação, edição e exclusão de posts;
     -   busca de post por pessoa e/ou conteúdo utilizando a barra de pesquisa;
+    -   alteração de tema de acordo com o sistema (claro/escuro);
 
 ## Capturas de Tela
 
@@ -17,11 +18,13 @@ A aplicação foi desenvolvida utilizando flutter e adotando padrões de código
 	<img width="200" height="400" src="./screenshots/home.png" alt="Início"/>
     <span style="padding-left:5px"></span>
     <img width="200" height="400" src="./screenshots/my_posts.png" alt="Meus Posts"/>
+    <span style="padding-left:5px"></span>
+    <img width="200" height="400" src="./screenshots/new_post.png" alt="Nova Postagem"/>
 </div>
 <div align="center">
-    <img width="200" height="400" src="./screenshots/new_post.png" alt="Nova Postagem"/>
+    <img width="200" height="400" src="./screenshots/searching.png" alt="Pesquisando Posts"/>
     <span style="padding-left:5px"></span>
-    <img width="200" height="400" src="./screenshots/searching.png" alt="Meus Posts"/>
+    <img width="200" height="400" src="./screenshots/home_edited.png" alt="Post Editado"/>
     <span style="padding-left:5px"></span>
-    <img width="200" height="400" src="./screenshots/home_edited.png" alt="Nova Postagem"/>
+    <img width="200" height="400" src="./screenshots/dark.png" alt="Modo Escuro"/>
 </div>
