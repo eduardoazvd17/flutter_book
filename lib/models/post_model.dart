@@ -65,7 +65,13 @@ class PostModel {
     }
     String year = date.year.toString();
     String hour = date.hour.toString();
+    if (hour.length == 1) {
+      hour = "0" + hour;
+    }
     String minutes = date.minute.toString();
+    if (minutes.length == 1) {
+      minutes = "0" + minutes;
+    }
     return day + "/" + month + "/" + year + " às " + hour + ":" + minutes;
   }
 }
