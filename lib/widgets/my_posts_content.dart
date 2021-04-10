@@ -27,6 +27,7 @@ class MyPostsContent extends StatelessWidget {
                   ),
                 )
               : ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemCount: _postsController.myPosts.length,
                   itemBuilder: (context, index) {
                     PostModel post = _postsController.myPosts[index];

@@ -26,6 +26,7 @@ class HomeContent extends StatelessWidget {
                   ),
                 )
               : ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemCount: _postsController.posts.length,
                   itemBuilder: (context, index) {
                     PostModel post = _postsController.posts[index];
