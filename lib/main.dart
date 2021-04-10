@@ -19,7 +19,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FlutterBook',
       theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: Colors.orange,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.orange,
+        accentColor: Colors.orange,
       ),
       initialRoute: ApplicationRoutes.HOME,
       initialBinding: ApplicationBinding(),
