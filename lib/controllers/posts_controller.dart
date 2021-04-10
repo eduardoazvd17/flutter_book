@@ -1,16 +1,16 @@
 import 'dart:math';
-
-import 'package:dio/dio.dart';
 import 'package:flutterbook/models/post_model.dart';
 import 'package:flutterbook/models/user_model.dart';
 import 'package:flutterbook/repositories/api_repository.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class PostsController extends GetxController {
+  final ApiRepository _repository;
+  PostsController(this._repository);
+
   // On Init -> Load API Posts.
   @override
-  void onInit() async {
+  Future<void> onInit() async {
     super.onInit();
     await _loadPostsFromApi();
   }
@@ -64,14 +64,12 @@ class PostsController extends GetxController {
   }
 
   List get myPosts {
-    _posts.value.sort((a, b) => b.date.compareTo(a.date));
     return posts.where((element) => element.user.id == user.id).toList();
   }
 
   _loadPostsFromApi() async {
     _loading.value = true;
-    ApiRepository _apiService = ApiRepository(Get.find<Dio>());
-    _posts.value = await _apiService.getPosts();
+    _posts.value = await _repository.getPosts();
     _loading.value = false;
   }
 

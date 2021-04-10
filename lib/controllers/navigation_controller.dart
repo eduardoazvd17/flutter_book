@@ -32,9 +32,15 @@ class NavigationController extends GetxController {
       ];
 
   // Pages
-  RxList _pages = [
-    HomeContent(Get.find<PostsController>()),
-    MyPostsContent(Get.find<PostsController>()),
-  ].obs;
+  List _pages = [];
   get currentPage => _pages[currentPageIndex];
+
+  @override
+  void onInit() {
+    super.onInit();
+    _pages = [
+      HomeContent(_postsController),
+      MyPostsContent(_postsController),
+    ];
+  }
 }
