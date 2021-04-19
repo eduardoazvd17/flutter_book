@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterbook/controllers/posts_controller.dart';
-import 'package:flutterbook/models/post_model.dart';
-import 'package:flutterbook/models/user_model.dart';
-import 'package:flutterbook/repositories/api_repository.dart';
+import 'package:flutterbook/core/controllers/posts_controller.dart';
+import 'package:flutterbook/core/repositories/api_repository.dart';
+import 'package:flutterbook/features/home_page/models/post_model.dart';
+import 'package:flutterbook/features/home_page/models/user_model.dart';
 import 'package:mockito/mockito.dart';
 
 class ApiRepositoryMock extends Mock implements ApiRepository {}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbook/models/user_model.dart';
+import 'package:flutterbook/features/home_page/models/user_model.dart';
 
 class PostModel {
   String id;

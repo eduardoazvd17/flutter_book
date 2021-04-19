@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterbook/controllers/navigation_controller.dart';
-import 'package:flutterbook/controllers/posts_controller.dart';
-import 'package:flutterbook/widgets/home_content.dart';
-import 'package:flutterbook/widgets/my_posts_content.dart';
+import 'package:flutterbook/core/controllers/posts_controller.dart';
+import 'package:flutterbook/features/home_page/controllers/navigation_controller.dart';
+import 'package:flutterbook/features/home_page/widgets/home_content.dart';
+import 'package:flutterbook/features/home_page/widgets/my_posts_content.dart';
 import 'package:mockito/mockito.dart';
 
 class PostsControllerMock extends Mock implements PostsController {}

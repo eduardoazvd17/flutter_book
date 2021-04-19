@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbook/bindings/application_binding.dart';
-import 'package:flutterbook/bindings/home_binding.dart';
-import 'package:flutterbook/utils/application_routes.dart';
-import 'package:flutterbook/views/home_page.dart';
+import 'package:flutterbook/core/bindings/application_binding.dart';
 import 'package:get/get.dart';
 
-import 'controllers/navigation_controller.dart';
-import 'controllers/posts_controller.dart';
+import 'core/controllers/posts_controller.dart';
+import 'features/home_page/bindings/home_binding.dart';
+import 'features/home_page/controllers/navigation_controller.dart';
+import 'features/home_page/views/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,11 +26,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         accentColor: Colors.orange,
       ),
-      initialRoute: ApplicationRoutes.HOME,
+      initialRoute: HomePage.routeName,
       initialBinding: ApplicationBinding(),
       getPages: [
         GetPage(
-          name: ApplicationRoutes.HOME,
+          name: HomePage.routeName,
           page: () => HomePage(
             Get.find<NavigationController>(),
             Get.find<PostsController>(),

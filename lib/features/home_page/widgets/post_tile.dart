@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbook/models/post_model.dart';
+import 'package:flutterbook/features/home_page/models/post_model.dart';
 
 class PostTile extends StatelessWidget {
   final PostModel post;

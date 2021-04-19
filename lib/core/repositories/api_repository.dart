@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutterbook/models/post_model.dart';
+import 'package:flutterbook/features/home_page/models/post_model.dart';
 
 class ApiRepository {
   final Dio _dio;

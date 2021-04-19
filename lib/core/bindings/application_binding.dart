@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutterbook/controllers/posts_controller.dart';
-import 'package:flutterbook/repositories/api_repository.dart';
+import 'package:flutterbook/core/controllers/posts_controller.dart';
+import 'package:flutterbook/core/repositories/api_repository.dart';
 import 'package:get/get.dart';
 
 class ApplicationBinding extends Bindings {

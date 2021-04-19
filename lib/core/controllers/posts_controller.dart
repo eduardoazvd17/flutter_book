@@ -1,7 +1,7 @@
 import 'dart:math';
-import 'package:flutterbook/models/post_model.dart';
-import 'package:flutterbook/models/user_model.dart';
-import 'package:flutterbook/repositories/api_repository.dart';
+import 'package:flutterbook/core/repositories/api_repository.dart';
+import 'package:flutterbook/features/home_page/models/post_model.dart';
+import 'package:flutterbook/features/home_page/models/user_model.dart';
 import 'package:get/get.dart';
 
 class PostsController extends GetxController {

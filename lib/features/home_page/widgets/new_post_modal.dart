@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbook/controllers/posts_controller.dart';
-import 'package:flutterbook/models/post_model.dart';
-import 'package:flutterbook/widgets/main_layout.dart';
+import 'package:flutterbook/core/controllers/posts_controller.dart';
+import 'package:flutterbook/core/widgets/main_layout.dart';
+import 'package:flutterbook/features/home_page/models/post_model.dart';
 import 'package:get/get.dart';
 
 class NewPostModal extends StatefulWidget {

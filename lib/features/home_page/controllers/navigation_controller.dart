@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbook/controllers/posts_controller.dart';
-import 'package:flutterbook/widgets/home_content.dart';
-import 'package:flutterbook/widgets/my_posts_content.dart';
+import 'package:flutterbook/core/controllers/posts_controller.dart';
+import 'package:flutterbook/features/home_page/widgets/home_content.dart';
+import 'package:flutterbook/features/home_page/widgets/my_posts_content.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 

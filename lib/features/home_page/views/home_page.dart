@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbook/controllers/navigation_controller.dart';
-import 'package:flutterbook/controllers/posts_controller.dart';
-import 'package:flutterbook/widgets/main_layout.dart';
-import 'package:flutterbook/widgets/new_post_modal.dart';
+import 'package:flutterbook/core/controllers/posts_controller.dart';
+import 'package:flutterbook/features/home_page/controllers/navigation_controller.dart';
+import 'package:flutterbook/core/widgets/main_layout.dart';
+import 'package:flutterbook/features/home_page/widgets/new_post_modal.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
+  static const String routeName = "/";
   final NavigationController _navigationController;
   final PostsController _postsController;
   HomePage(this._navigationController, this._postsController);
